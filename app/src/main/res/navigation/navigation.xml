@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/kostListFragment"
+        android:name="com.example.a160420068_ubayakost.view.KostListFragment"
+        android:label="Kost List"
+        tools:layout="@layout/fragment_kost_list">
+        <action
+            android:id="@+id/actionToDetail"
+            app:destination="@id/kostDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kostDetailFragment"
+        android:name="com.example.a160420068_ubayakost.view.KostDetailFragment"
+        android:label="Detail Kost"
+        tools:layout="@layout/fragment_kost_detail">
+        <action
+            android:id="@+id/actionToBook"
+            app:destination="@id/kostBookFragment" />
+        <action
+            android:id="@+id/actionToEdit"
+            app:destination="@id/kostEditFragment" />
+        <action
+            android:id="@+id/actionToReview"
+            app:destination="@id/kostReviewFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/kostBookFragment"
+        android:name="com.example.a160420068_ubayakost.view.KostBookFragment"
+        android:label="Booking Kost"
+        tools:layout="@layout/fragment_kost_book" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/kostReviewFragment"
+        android:name="com.example.a160420068_ubayakost.view.KostReviewFragment"
+        android:label="Review Kost"
+        tools:layout="@layout/fragment_kost_review">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.a160420068_ubayakost.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/kostEditFragment"
+        android:name="com.example.a160420068_ubayakost.view.KostEditFragment"
+        android:label="Edit Kost"
+        tools:layout="@layout/fragment_kost_edit">
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/editToList"
+            app:destination="@id/kostListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kostRatingFragment"
+        android:name="com.example.a160420068_ubayakost.view.KostRatingFragment"
+        android:label="Rating"
+        tools:layout="@layout/fragment_kost_rating" >
+        <action
+            android:id="@+id/ratingToDetail"
+            app:destination="@id/kostDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.a160420068_ubayakost.view.LoginFragment"
+        android:label="LOGIN"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/loginToList"
+            app:destination="@id/kostListFragment" />
+    </fragment>
+</navigation>
