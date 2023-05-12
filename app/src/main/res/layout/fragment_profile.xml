@@ -45,6 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#A3B4F1"
+                    android:editable="false"
                     android:hint="Username" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,6 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#A3B4F1"
+                    android:editable="true"
                     android:hint="Address" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,6 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#A3B4F1"
+                    android:editable="false"
                     android:hint="Number" />
             </com.google.android.material.textfield.TextInputLayout>
 
