@@ -16,6 +16,7 @@ import com.google.gson.reflect.TypeToken
 class DetailViewModel(application: Application):
     AndroidViewModel(application){
     val kostLD = MutableLiveData<Kost>()
+    val TAG = "volleyTag"
     private var queue: RequestQueue? = null
 
     fun refresh(id : String){
@@ -25,8 +26,7 @@ class DetailViewModel(application: Application):
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
-                val sType = object : TypeToken<Kost>() { }.type
-                val result = Gson().fromJson<Kost>(it, sType)
+                val result = Gson().fromJson<Kost>(it, Kost::class.java)
                 kostLD.value = result
 
                 Log.d("showvoley", result.toString())
@@ -35,6 +35,7 @@ class DetailViewModel(application: Application):
                 Log.d("showvoley", it.toString())
             }
         )
+        stringRequest.tag = TAG
         queue?.add(stringRequest)
     }
 
