@@ -24,7 +24,25 @@ fun ImageView.loadImage(url: String?, progressBar: ProgressBar) {
             }
         })
 }
+fun ImageView.loadImageURL(url: String?) {
+    Picasso.get()
+        .load(url)
+        .resize(400,400)
+        .centerCrop()
+        .error(R.drawable.baseline_error_24)
+        .into(this,object: Callback {
+            override fun onSuccess(){
+            }
+
+            override fun onError(e: Exception?){
+            }
+        })
+}
 @BindingAdapter("android:imageUrl","android:progressBar")
 fun loadPhotoURL(view:ImageView,url:String, pb:ProgressBar){
     view.loadImage(url,pb)
+}
+@BindingAdapter("android:imageURL")
+fun loadPhotoUrl(view:ImageView,url:String) {
+    view.loadImageURL(url)
 }
