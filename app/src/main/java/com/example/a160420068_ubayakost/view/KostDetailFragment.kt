@@ -1,5 +1,6 @@
 package com.example.a160420068_ubayakost.view
 
+import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.databinding.FragmentKostDetailBinding
+import com.example.a160420068_ubayakost.util.loadImage
+import com.example.a160420068_ubayakost.util.loadPhotoURL
 import com.example.a160420068_ubayakost.viewModel.DetailViewModel
 import com.squareup.picasso.Picasso
 
@@ -47,7 +50,7 @@ class KostDetailFragment : Fragment(),ButtonEditClickListener,ButtonBookingClick
             dataBinding.kost = it
         })
     }
-    fun ImageView.loadImageURL(url:String?){
+    fun ImageView.loadImage(url:String?){
         Picasso.get()
             .load(url)
             .resize(400, 400)

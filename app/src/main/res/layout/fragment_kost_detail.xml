@@ -40,6 +40,8 @@
                     android:id="@+id/imageViewDet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:imageUrl="@{kost.photo}"
+                    android:progressBar="@{progressBar2}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@tools:sample/avatars" />
