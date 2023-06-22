@@ -42,6 +42,9 @@ class KostDetailFragment : Fragment(),ButtonEditClickListener,ButtonBookingClick
         }
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         detailViewModel.refresh(id)
+        dataBinding.review = this
+        dataBinding.edit = this
+        dataBinding.booking = this
 
         observeViewModel()
     }

@@ -31,6 +31,8 @@
                     android:id="@+id/imageViewDet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:imageUrl="@{review.photo}"
+                    android:progressBar="@{progressBar4}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@tools:sample/avatars" />
@@ -92,6 +94,16 @@
                     android:text="Review :"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtDetail" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar4"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageViewDet"
+                    app:layout_constraintEnd_toEndOf="@+id/imageViewDet"
+                    app:layout_constraintStart_toStartOf="@+id/imageViewDet"
+                    app:layout_constraintTop_toTopOf="@+id/imageViewDet" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
