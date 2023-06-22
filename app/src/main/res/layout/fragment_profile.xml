@@ -54,7 +54,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="#A3B4F1"
                         android:editable="false"
-                        android:hint="@{profile.username}" />
+                        android:hint="Username"
+                        android:text="@{profile.username}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -74,7 +75,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="#A3B4F1"
                         android:editable="true"
-                        android:hint="@{profile.address}" />
+                        android:hint="Address"
+                        android:text="@{profile.address}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -93,7 +95,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="#A3B4F1"
                         android:editable="false"
-                        android:hint="@{profile.number}" />
+                        android:hint="Number"
+                        android:text="@{profile.number}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

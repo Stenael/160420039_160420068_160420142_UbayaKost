@@ -10,13 +10,14 @@ import android.widget.ProgressBar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.databinding.FragmentKostDetailBinding
 import com.example.a160420068_ubayakost.viewModel.DetailViewModel
 import com.squareup.picasso.Picasso
 
 
-class KostDetailFragment : Fragment() {
+class KostDetailFragment : Fragment(),ButtonEditClickListener,ButtonBookingClickListener,ButtonReviewClickListener {
 
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var dataBinding:FragmentKostDetailBinding
@@ -53,5 +54,20 @@ class KostDetailFragment : Fragment() {
             .centerCrop()
             .error(R.drawable.baseline_error_24)
             .into(this)
+    }
+
+    override fun onButtonEditClick(v: View) {
+        val action = KostDetailFragmentDirections.actionToEdit(v.tag.toString())
+        Navigation.findNavController(v).navigate(action)
+    }
+
+    override fun onButtonReviewClick(v: View) {
+        val action = KostDetailFragmentDirections.actionToReview(v.tag.toString())
+        Navigation.findNavController(v).navigate(action)
+    }
+
+    override fun onButtonBookingClick(v: View) {
+        val action = KostDetailFragmentDirections.actionToBook(v.tag.toString())
+        Navigation.findNavController(v).navigate(action)
     }
 }

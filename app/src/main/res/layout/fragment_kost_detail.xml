@@ -7,6 +7,15 @@
         <variable
             name="kost"
             type="com.example.a160420068_ubayakost.model.Kost"/>
+        <variable
+            name="edit"
+            type="com.example.a160420068_ubayakost.view.ButtonEditClickListener" />
+        <variable
+            name="review"
+            type="com.example.a160420068_ubayakost.view.ButtonReviewClickListener" />
+        <variable
+            name="booking"
+            type="com.example.a160420068_ubayakost.view.ButtonBookingClickListener" />
     </data>
 
     <FrameLayout
@@ -67,6 +76,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
                     android:text="Booking"
+                    android:tag="@{kost.id}"
+                    android:onClick="@{booking::onButtonBookingClick}"
                     android:textSize="14sp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -80,6 +91,8 @@
                     android:layout_marginEnd="20dp"
                     android:fontFamily="sans-serif-black"
                     android:text="Review"
+                    android:tag="@{kost.id}"
+                    android:onClick="@{review::onButtonReviewClick}"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btnBook" />
@@ -91,6 +104,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
                     android:text="Edit"
+                    android:tag="@{kost.id}"
+                    android:onClick="@{edit::onButtonEditClick}"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
