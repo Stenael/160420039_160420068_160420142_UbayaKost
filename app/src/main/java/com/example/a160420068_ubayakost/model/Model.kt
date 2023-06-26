@@ -1,36 +1,41 @@
 package com.example.a160420068_ubayakost.model
 
-import com.google.gson.annotations.SerializedName
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity
 data class Kost(
-    val id:String?,
-    @SerializedName("name")
+    @ColumnInfo("name")
     var name:String?,
-    @SerializedName("desc")
+    @ColumnInfo("desc")
     var desc:String?,
-    @SerializedName("location")
+    @ColumnInfo("location")
     var location:String?,
-    @SerializedName("type")
+    @ColumnInfo("type")
     var type:String?,
-    @SerializedName("address")
+    @ColumnInfo("address")
     var addresss:String?,
-    @SerializedName("price")
+    @ColumnInfo("price")
     var price:String?,
-    @SerializedName("rating")
+    @ColumnInfo("rating")
     var rating:String?,
-    @SerializedName("photo")
+    @ColumnInfo("photo")
     var photo:String?,
-    @SerializedName("review1")
+    @ColumnInfo("review1")
     var rev1:String?,
-    @SerializedName("review2")
+    @ColumnInfo("review2")
     var rev2:String?,
-    @SerializedName("fal1")
+    @ColumnInfo("fal1")
     var fal1:String?,
-    @SerializedName("fal2")
+    @ColumnInfo("fal2")
     var fal2:String?,
-    @SerializedName("fal3")
+    @ColumnInfo("fal3")
     var fal3:String?
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0
+}
 data class Profile(
     val username:String?,
     val password:String?,
