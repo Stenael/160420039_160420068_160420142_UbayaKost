@@ -40,22 +40,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout13"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout12">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtKostPhoto"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Kost Photo URL" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout4"
                         android:layout_width="380dp"
                         android:layout_height="wrap_content"
@@ -92,29 +76,13 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout9"
-                        android:layout_width="380dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtKostLocation"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Kost Location" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout10"
                         android:layout_width="380dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtKostType"
@@ -172,8 +140,8 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout14"
-                        android:layout_width="380dp"
+                        android:id="@+id/textInputLayout16"
+                        android:layout_width="380sp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -181,54 +149,21 @@
                         app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="389dp"
-                            android:layout_height="wrap_content"
-                            android:hint="Kost Rating" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout16"
-                        android:layout_width="380sp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout14">
-
-                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtKostFacility"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Kost Facility 1" />
+                            android:hint="Kost Facility" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout17"
-                        android:layout_width="380sp"
+                    <Button
+                        android:id="@+id/btnAdd"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Add Kost"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Kost Facility 2" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="380sp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout17">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Kost Facility 3" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout16" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>

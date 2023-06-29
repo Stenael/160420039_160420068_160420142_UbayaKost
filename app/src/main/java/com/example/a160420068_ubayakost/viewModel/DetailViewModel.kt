@@ -23,9 +23,9 @@ import kotlin.coroutines.CoroutineContext
 class DetailViewModel(application: Application):
     AndroidViewModel(application), CoroutineScope{
     private val job = Job()
-//    val kostLD = MutableLiveData<Kost>()
-//    val TAG = "volleyTag"
-//    private var queue: RequestQueue? = null
+    val kostLD = MutableLiveData<Kost>()
+    val TAG = "volleyTag"
+    private var queue: RequestQueue? = null
     fun addTodo(list:List<Kost>){
         launch {
             val db = Room.databaseBuilder(
@@ -35,25 +35,25 @@ class DetailViewModel(application: Application):
         }
     }
 
-//    fun refresh(id : String){
-//        queue = Volley.newRequestQueue(getApplication())
-//        val url = "https://stenael.000webhostapp.com/api/kost_list.php?id=$id"
-//
-//        val stringRequest = StringRequest(
-//            Request.Method.GET, url,
-//            {
-//                val result = Gson().fromJson<Kost>(it, Kost::class.java)
-//                kostLD.value = result
-//
-//                Log.d("showvoley", result.toString())
-//            },
-//            {
-//                Log.d("showvoley", it.toString())
-//            }
-//        )
-//        stringRequest.tag = TAG
-//        queue?.add(stringRequest)
-//    }
+    fun refresh(id : String){
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "https://stenael.000webhostapp.com/api/kost_list.php?id=$id"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            {
+                val result = Gson().fromJson<Kost>(it, Kost::class.java)
+                kostLD.value = result
+
+                Log.d("showvoley", result.toString())
+            },
+            {
+                Log.d("showvoley", it.toString())
+            }
+        )
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
+    }
 
     override fun onCleared() {
         super.onCleared()

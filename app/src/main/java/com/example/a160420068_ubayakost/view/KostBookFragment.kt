@@ -40,8 +40,8 @@ class KostBookFragment : Fragment() {
             txtNameDet?.setText(kostDetail.name.toString())
             txtDetail?.setText(kostDetail.desc.toString())
             txtFal1?.setText(kostDetail.fal1.toString())
-            txtFal2?.setText(kostDetail.fal2.toString())
-            txtFal3?.setText(kostDetail.fal3.toString())
+//            txtFal2?.setText(kostDetail.fal2.toString())
+//            txtFal3?.setText(kostDetail.fal3.toString())
 
             var url = kostDetail.photo
             Picasso.get()

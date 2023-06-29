@@ -9,11 +9,13 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.viewModel.ListViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class KostListFragment : Fragment() {
    private lateinit var viewModel: ListViewModel
@@ -31,15 +33,14 @@ class KostListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh()
-        val recView = view?.findViewById<RecyclerView>(R.id.recView)
+        val recView = view.findViewById<RecyclerView>(R.id.recView)
         recView?.layoutManager = LinearLayoutManager(context)
         recView?.adapter = kostListAdapter
 
-        observeViewModel()
-
-        val refreshLayout = view?.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
-        val txtError = view?.findViewById<TextView>(R.id.txtError)
-        val progressBar = view?.findViewById<ProgressBar>(R.id.progressBar)
+        val refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
+        val txtError = view.findViewById<TextView>(R.id.txtError)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+        val fabAddKost = view.findViewById<FloatingActionButton>(R.id.fabAddKost)
 
         refreshLayout?.setOnRefreshListener {
             recView?.visibility = View.GONE
@@ -48,6 +49,13 @@ class KostListFragment : Fragment() {
             viewModel.refresh()
             refreshLayout.isRefreshing = false
         }
+
+        fabAddKost.setOnClickListener{
+            val action = KostListFragmentDirections.actionAddKost()
+            Navigation.findNavController(it).navigate(action)
+        }
+
+        observeViewModel()
     }
 
     private fun observeViewModel() {

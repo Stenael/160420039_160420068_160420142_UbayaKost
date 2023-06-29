@@ -34,7 +34,7 @@ class KostListAdapter(val kostList:ArrayList<Kost>)
         holder.view.kost = kostList[position]
         holder.view.listener = this
     }
-    fun updateKostList(newKostList: ArrayList<Kost>) {
+    fun updateKostList(newKostList: List<Kost>) {
         kostList.clear()
         kostList.addAll(newKostList)
         notifyDataSetChanged()
