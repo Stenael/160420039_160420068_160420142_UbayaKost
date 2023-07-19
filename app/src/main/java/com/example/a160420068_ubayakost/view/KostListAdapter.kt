@@ -19,7 +19,7 @@ class KostListAdapter(
             KostViewHolder
     {
         val inflater = LayoutInflater.from(parent.context)
-        val view = DataBindingUtil.inflate<KostListItemBinding>(inflater,R.layout.kost_list_item, parent, false)
+        val view = KostListItemBinding.inflate(inflater, parent, false)
         return KostViewHolder(view)
     }
 

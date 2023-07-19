@@ -34,21 +34,8 @@ class KostListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh()
         val recView = view.findViewById<RecyclerView>(R.id.recView)
-        recView?.layoutManager = LinearLayoutManager(context)
-        recView?.adapter = kostListAdapter
-
-        val refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
-        val txtError = view.findViewById<TextView>(R.id.txtError)
-        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
-
-        refreshLayout?.setOnRefreshListener {
-            recView?.visibility = View.GONE
-            txtError?.visibility = View.GONE
-            progressBar?.visibility = View.VISIBLE
-            viewModel.refresh()
-            refreshLayout.isRefreshing = false
-        }
-
+        recView.layoutManager = LinearLayoutManager(context)
+        recView.adapter = kostListAdapter
 
         observeViewModel()
     }
@@ -56,24 +43,17 @@ class KostListFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.kostsLD.observe(viewLifecycleOwner, Observer {
             kostListAdapter.updateKostList(it)
-        })
-        viewModel.kostLoadingLoadErrorLD.observe(viewLifecycleOwner, Observer {
-            val txtError = view?.findViewById<TextView>(R.id.txtError)
-            if(it == true) {
-                txtError?.visibility = View.VISIBLE
-            } else {
-                txtError?.visibility = View.GONE
-            }
-        })
-        viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
             val recView = view?.findViewById<RecyclerView>(R.id.recView)
             val progressLoad = view?.findViewById<ProgressBar>(R.id.progressBar)
-            if(it == true) {
+            val txtError = view?.findViewById<TextView>(R.id.txtError)
+            if(it.isEmpty()) {
                 recView?.visibility = View.GONE
                 progressLoad?.visibility = View.VISIBLE
+                txtError?.visibility = View.VISIBLE
             } else {
                 recView?.visibility = View.VISIBLE
                 progressLoad?.visibility = View.GONE
+                txtError?.visibility = View.GONE
             }
         })
     }

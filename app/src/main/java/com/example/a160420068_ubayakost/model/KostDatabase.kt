@@ -21,6 +21,7 @@ abstract class KostDatabase:RoomDatabase() {
                 context.applicationContext,
                 KostDatabase::class.java, "kostdbnew")
                 .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
+                .createFromAsset("kostdbnew")
                 .build()
         operator fun invoke(context:Context) {
             if(instance!=null) {

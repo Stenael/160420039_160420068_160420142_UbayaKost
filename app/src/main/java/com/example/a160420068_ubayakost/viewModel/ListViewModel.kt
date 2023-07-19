@@ -37,27 +37,6 @@ class ListViewModel(application: Application):
                 getApplication())
             kostsLD.postValue(db.kostDao().selectAllKost())
         }
-
-//        queue = Volley.newRequestQueue(getApplication())
-//        val url = "https://stenael.000webhostapp.com/api/kost_list.php"
-//
-//        val stringRequest = StringRequest(
-//            Request.Method.GET, url,
-//            {
-//                val sType = object: TypeToken<List<Kost>>() { }.type
-//                val result = Gson().fromJson<ArrayList<Kost>>(it, sType)
-//                kostsLD.value = result
-//                loadingLD.value = false
-//
-//                Log.d("showvolley", result.toString())
-//            },
-//            {
-//                Log.d("showvolley", it.toString())
-//                kostLoadingLoadErrorLD.value = false
-//                loadingLD.value = false
-//            })
-//        stringRequest.tag = TAG
-//        queue?.add(stringRequest)
     }
 
     override fun onCleared() {
