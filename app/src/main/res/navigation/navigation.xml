@@ -13,9 +13,6 @@
         <action
             android:id="@+id/actionToDetail"
             app:destination="@id/kostDetailFragment" />
-        <action
-            android:id="@+id/actionAddKost"
-            app:destination="@id/addKostFragment" />
     </fragment>
     <fragment
         android:id="@+id/kostDetailFragment"
@@ -88,9 +85,4 @@
             android:id="@+id/loginToList"
             app:destination="@id/kostListFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/addKostFragment"
-        android:name="com.example.a160420068_ubayakost.view.AddKostFragment"
-        android:label="fragment_add_kost"
-        tools:layout="@layout/fragment_add_kost" />
 </navigation>

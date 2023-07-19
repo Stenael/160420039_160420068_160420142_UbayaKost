@@ -26,14 +26,14 @@ class DetailViewModel(application: Application):
     val kostLD = MutableLiveData<Kost>()
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
-    fun addTodo(list:List<Kost>){
-        launch {
-            val db = Room.databaseBuilder(
-                getApplication(), KostDatabase::class.java,
-                "newkostdb").build()
-            db.kostDao().insertAll(*list.toTypedArray())
-        }
-    }
+//    fun addTodo(list:List<Kost>){
+//        launch {
+//            val db = Room.databaseBuilder(
+//                getApplication(), KostDatabase::class.java,
+//                "newkostdb").build()
+//            db.kostDao().insertAll(*list.toTypedArray())
+//        }
+//    }
 
     fun refresh(id : String){
         queue = Volley.newRequestQueue(getApplication())

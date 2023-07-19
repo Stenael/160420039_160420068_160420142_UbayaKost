@@ -11,6 +11,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.a160420068_ubayakost.model.Kost
 import com.example.a160420068_ubayakost.model.KostDatabase
+import com.example.a160420068_ubayakost.util.buildDb
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
@@ -32,9 +33,8 @@ class ListViewModel(application: Application):
         loadingLD.value = true
         kostLoadingLoadErrorLD.value = false
         launch {
-            val db = Room.databaseBuilder(
-                getApplication(),
-                KostDatabase::class.java,"newkostdb").build()
+            val db = buildDb(
+                getApplication())
             kostsLD.postValue(db.kostDao().selectAllKost())
         }
 

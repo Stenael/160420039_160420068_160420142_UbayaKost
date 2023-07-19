@@ -40,7 +40,6 @@ class KostListFragment : Fragment() {
         val refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
         val txtError = view.findViewById<TextView>(R.id.txtError)
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
-        val fabAddKost = view.findViewById<FloatingActionButton>(R.id.fabAddKost)
 
         refreshLayout?.setOnRefreshListener {
             recView?.visibility = View.GONE
@@ -50,10 +49,6 @@ class KostListFragment : Fragment() {
             refreshLayout.isRefreshing = false
         }
 
-        fabAddKost.setOnClickListener{
-            val action = KostListFragmentDirections.actionAddKost()
-            Navigation.findNavController(it).navigate(action)
-        }
 
         observeViewModel()
     }
