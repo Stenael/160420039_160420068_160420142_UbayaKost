@@ -31,6 +31,13 @@ class DetailViewModel(application: Application):
         queue?.cancelAll(TAG)
     }
 
+    fun updateKost(address:String,price:String,type:String,id:Int){
+        launch {
+            val db = buildDb(getApplication())
+            db.kostDao().updateKost(address,price,type,id)
+        }
+    }
+
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.IO
 }

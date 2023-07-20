@@ -18,4 +18,7 @@ interface KostDao {
 
     @Query("SELECT * FROM kost WHERE rating like '4%'")
     fun selectRatingKost(): List<Kost>
+
+    @Query("UPDATE kost SET address=:address, price=:price, type=:type WHERE id=:id")
+    suspend fun updateKost(address:String,price:String,type:String,id:Int)
 }

@@ -14,6 +14,6 @@ interface ButtonReviewClickListener{
 interface ButtonBookingClickListener{
     fun onButtonBookingClick(v:View)
 }
-interface ButtonAddKostClickListener{
-    fun onButtonAddKostClick(v:View)
+interface ButtonEditKostClickListener{
+    fun onButtonEditKostClick(v:View)
 }

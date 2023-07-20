@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,7 +22,7 @@ import com.example.a160420068_ubayakost.viewModel.DetailViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 
-class KostEditFragment : Fragment() {
+class KostEditFragment : Fragment(),ButtonEditKostClickListener {
 
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var dataBinding: FragmentKostEditBinding
@@ -53,6 +54,11 @@ class KostEditFragment : Fragment() {
             .centerCrop()
             .error(R.drawable.baseline_error_24)
             .into(this)
+    }
+    override fun onButtonEditKostClick(v: View) {
+        detailViewModel.updateKost(dataBinding.txtAddress.toString(),dataBinding.txtPrice.toString(),dataBinding.txtType.toString(),id)
+        Toast.makeText(view?.context,"Kost Updated",Toast.LENGTH_SHORT).show()
+        Navigation.findNavController(v).popBackStack()
     }
 
 }
