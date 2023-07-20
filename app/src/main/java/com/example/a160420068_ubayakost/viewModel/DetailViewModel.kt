@@ -28,6 +28,7 @@ class DetailViewModel(application: Application):
 
     override fun onCleared() {
         super.onCleared()
+        queue?.cancelAll(TAG)
     }
 
     override val coroutineContext: CoroutineContext
