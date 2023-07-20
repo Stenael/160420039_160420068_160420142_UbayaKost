@@ -49,10 +49,13 @@ data class Profile(
     val number:String?
 )
 
-@Entity(tableName = "historysewa")
-data class HistorySewa(
-    @ColumnInfo("kostname")
-    val kostname:String?,
-    @ColumnInfo("tanggalselesai")
-    val tanggalselesai:Date?
-)
+//@Entity(tableName = "historysewa")
+//data class HistorySewa(
+//    @ColumnInfo("kostname")
+//    val kostname:String?,
+//    @ColumnInfo("tanggalselesai")
+//    val tanggalselesai:String?
+//){
+//    @PrimaryKey(autoGenerate = true)
+//    var id:Int = 0
+//}

@@ -9,7 +9,7 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.a160420068_ubayakost.model.HistorySewa
+//import com.example.a160420068_ubayakost.model.HistorySewa
 import com.example.a160420068_ubayakost.model.Kost
 import com.example.a160420068_ubayakost.model.KostDatabase
 import com.example.a160420068_ubayakost.util.buildDb
@@ -24,7 +24,7 @@ import kotlin.coroutines.CoroutineContext
 class ListViewModel(application: Application):
     AndroidViewModel(application), CoroutineScope{
     val kostsLD = MutableLiveData<List<Kost>>()
-    val historyLD = MutableLiveData<List<HistorySewa>>()
+//    val historyLD = MutableLiveData<List<HistorySewa>>()
     val kostLoadingLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD  = MutableLiveData<Boolean>()
     val TAG = "volleyTag"
@@ -40,13 +40,13 @@ class ListViewModel(application: Application):
             kostsLD.postValue(db.kostDao().selectAllKost())
         }
     }
-    fun fetch(){
-        launch {
-            val db= buildDb(
-                getApplication())
-            historyLD.postValue((db.kostDao().selectAllHistory()))
-        }
-    }
+//    fun fetch(){
+//        launch {
+//            val db= buildDb(
+//                getApplication())
+//            historyLD.postValue((db.kostDao().selectAllHistory()))
+//        }
+//    }
 
     override fun onCleared() {
         super.onCleared()

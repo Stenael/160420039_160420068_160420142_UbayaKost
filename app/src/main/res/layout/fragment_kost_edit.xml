@@ -72,7 +72,7 @@
                     android:fontFamily="sans-serif-black"
                     android:text="Finish"
                     android:tag="@{kost.id}"
-                    android:onClick="@{edit::onButtonEditKostClick}"
+                    android:onClick="@{(view)->edit.onButtonEditKostClick(view,kost)}"
                     android:textSize="14sp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Address"
-                        android:text="@{kost.addresss}"
+                        android:text="@={kost.addresss}"
                         tools:layout_editor_absoluteX="8dp"
                         tools:layout_editor_absoluteY="155dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -113,7 +113,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Price"
-                        android:text="@{kost.price}"/>
+                        android:text="@={kost.price}"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -131,7 +131,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Type"
-                        android:text="@{kost.type}"/>
+                        android:text="@={kost.type}"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ProgressBar

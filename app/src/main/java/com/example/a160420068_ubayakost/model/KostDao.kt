@@ -10,8 +10,8 @@ interface KostDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg kost: Kost)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllHistory(vararg  historySewa: HistorySewa)
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    fun insertAllHistory(vararg  historySewa: HistorySewa)
 
     @Query("SELECT * FROM kost")
     fun selectAllKost() :List<Kost>
@@ -23,8 +23,8 @@ interface KostDao {
     fun selectRatingKost(): List<Kost>
 
     @Query("UPDATE kost SET address=:address, price=:price, type=:type WHERE id=:id")
-    suspend fun updateKost(address:String,price:String,type:String,id:Int)
+    suspend fun updateKost(address: String?, price: String?, type: String?, id:Int)
 
-    @Query("SELECT * FROM historysewa")
-    fun selectAllHistory(): List<HistorySewa>
+//    @Query("SELECT * FROM historysewa")
+//    fun selectAllHistory(): List<HistorySewa>
 }

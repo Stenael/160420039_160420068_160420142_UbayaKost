@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -13,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.databinding.FragmentKostEditBinding
+import com.example.a160420068_ubayakost.model.Kost
 import com.example.a160420068_ubayakost.viewModel.DetailViewModel
 import com.squareup.picasso.Picasso
 
@@ -50,8 +50,8 @@ class KostEditFragment : Fragment(),ButtonEditKostClickListener {
             .error(R.drawable.baseline_error_24)
             .into(this)
     }
-    override fun onButtonEditKostClick(v: View) {
-        detailViewModel.updateKost(dataBinding.txtAddress.text.toString(),dataBinding.txtPrice.text.toString(),dataBinding.txtType.toString(),id)
+    override fun onButtonEditKostClick(v: View, kost: Kost) {
+        detailViewModel.updateKost(kost.addresss,kost.price,kost.type, kost.id)
         Toast.makeText(view?.context,"Kost Updated",Toast.LENGTH_SHORT).show()
         Navigation.findNavController(v).popBackStack()
     }
