@@ -40,14 +40,18 @@ data class Kost(
 @Entity(tableName = "profile")
 data class Profile(
     @ColumnInfo("username")
-    val username:String?,
+    var username:String?,
     @ColumnInfo("password")
-    val password:String?,
+    var password:String?,
     @ColumnInfo("address")
-    val address:String?,
+    var address:String?,
     @ColumnInfo("number")
-    val number:String?
+    var number:String?
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0
+}
 
 //@Entity(tableName = "historysewa")
 //data class HistorySewa(

@@ -9,7 +9,7 @@ import com.example.a160420068_ubayakost.util.MIGRATION_2_3
 import com.example.a160420068_ubayakost.util.MIGRATION_3_4
 import com.example.a160420068_ubayakost.util.MIGRATION_4_5
 
-@Database(entities = arrayOf(Kost::class),version = 5)
+@Database(entities = [Kost::class,Profile::class],version = 6)
 abstract class KostDatabase:RoomDatabase() {
     abstract fun kostDao() : KostDao
 
@@ -22,6 +22,7 @@ abstract class KostDatabase:RoomDatabase() {
                 KostDatabase::class.java, "kostdbnew")
                 .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
                 .createFromAsset("kostdbnew")
+                .fallbackToDestructiveMigration()
                 .build()
         operator fun invoke(context:Context) {
             if(instance!=null) {
@@ -33,4 +34,6 @@ abstract class KostDatabase:RoomDatabase() {
             }
         }
     }
+
+
 }

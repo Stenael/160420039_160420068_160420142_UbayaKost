@@ -6,17 +6,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.Global
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.databinding.FragmentKostDetailBinding
+import com.example.a160420068_ubayakost.databinding.FragmentKostEditBinding
 import com.example.a160420068_ubayakost.databinding.FragmentProfileBinding
+import com.example.a160420068_ubayakost.model.Kost
 import com.example.a160420068_ubayakost.viewModel.ProfileViewModel
 import com.google.android.material.textfield.TextInputEditText
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), ButtonEditProfileClickListener{
+
 
     private lateinit var profileViewModel: ProfileViewModel
     private lateinit var dataBinding: FragmentProfileBinding
@@ -25,7 +30,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = DataBindingUtil.inflate<FragmentProfileBinding>(inflater,R.layout.fragment_profile,container,false)
+        dataBinding = FragmentProfileBinding.inflate(inflater,container,false)
         return dataBinding.root
     }
 
@@ -33,7 +38,10 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        profileViewModel.fetch(Global.username, Global.password)
+
+        val profileId = ProfileFragmentArgs.fromBundle(requireArguments()).id
+        profileViewModel.refresh(profileId)
+        profileViewModel.fetch(Global.username,Global.password)
 
         observeViewModel()
 
@@ -42,14 +50,10 @@ class ProfileFragment : Fragment() {
         profileViewModel.profileLD.observe(viewLifecycleOwner, Observer {
             dataBinding.profile = it
         })
-//        val txtUsername = view?.findViewById<TextInputEditText>(R.id.txtUsername)
-//        val txtAddress = view?.findViewById<TextInputEditText>(R.id.txtAddress)
-//        val txtNumber = view?.findViewById<TextInputEditText>(R.id.txtNumber)
-//
-//        profileViewModel.profileLD.observe(viewLifecycleOwner, Observer{
-//            txtUsername?.setText(profileViewModel.profileLD.value?.username)
-//            txtAddress?.setText(profileViewModel.profileLD.value?.address)
-//            txtNumber?.setText(profileViewModel.profileLD.value?.number)
-//        })
+    }
+    override fun onButtonEditProfileClick(v: View, profile: com.example.a160420068_ubayakost.model.Profile){
+        profileViewModel.updateProfile(profile.address,profile.number,profile.id)
+        Toast.makeText(view?.context,"Profile Updated", Toast.LENGTH_SHORT).show()
+        Navigation.findNavController(v).popBackStack()
     }
 }

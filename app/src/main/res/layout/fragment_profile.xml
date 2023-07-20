@@ -7,6 +7,9 @@
         <variable
             name="profile"
             type="com.example.a160420068_ubayakost.model.Profile" />
+        <variable
+            name="editProfile"
+            type="com.example.a160420068_ubayakost.view.ButtonEditProfileClickListener" />
     </data>
 
     <FrameLayout
@@ -16,7 +19,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="460dp"
+            android:layout_height="512dp"
             app:cardBackgroundColor="#BCD89D25"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
@@ -26,6 +29,23 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnEditProfile"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:fontFamily="sans-serif-black"
+                    android:onClick="@{(view)->editProfile.onButtonEditProfileClick(view,profile)}"
+                    android:tag="@{profile.id}"
+                    android:text="Edit"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -55,7 +75,7 @@
                         android:backgroundTint="#A3B4F1"
                         android:editable="false"
                         android:hint="Username"
-                        android:text="@{profile.username}" />
+                        android:text="@={profile.username}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -76,10 +96,11 @@
                         android:backgroundTint="#A3B4F1"
                         android:editable="true"
                         android:hint="Address"
-                        android:text="@{profile.address}" />
+                        android:text="@={profile.address}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -94,9 +115,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#A3B4F1"
-                        android:editable="false"
+                        android:editable="true"
                         android:hint="Number"
-                        android:text="@{profile.number}" />
+                        android:text="@={profile.number}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

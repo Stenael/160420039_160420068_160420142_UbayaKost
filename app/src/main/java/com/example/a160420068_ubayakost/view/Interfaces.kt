@@ -2,6 +2,7 @@ package com.example.a160420068_ubayakost.view
 
 import android.view.View
 import com.example.a160420068_ubayakost.model.Kost
+import com.example.a160420068_ubayakost.model.Profile
 
 interface ButtonDetailClickListener {
     fun onButtonDetailClick(v: View)
@@ -17,4 +18,7 @@ interface ButtonBookingClickListener{
 }
 interface ButtonEditKostClickListener{
     fun onButtonEditKostClick(v:View, kost: Kost)
+}
+interface ButtonEditProfileClickListener{
+    fun onButtonEditProfileClick(v:View, profile: Profile)
 }
