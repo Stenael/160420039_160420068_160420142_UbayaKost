@@ -10,8 +10,8 @@ interface KostDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg kost: Kost)
 
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun insertAllHistory(vararg  historySewa: HistorySewa)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllHistory(vararg  historySewa: HistorySewa)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllProfile(vararg  profile: Profile)
@@ -25,8 +25,8 @@ interface KostDao {
     @Query("SELECT * FROM kost WHERE rating like '4%'")
     fun selectRatingKost(): List<Kost>
 
-    @Query("SELECT * FROM profile WHERE id= :id")
-    fun selectProfile(id:Int): Profile
+    @Query("SELECT * FROM profile WHERE username= :username")
+    fun selectProfile(username:String?): Profile
 
     @Query("UPDATE kost SET address=:address, price=:price, type=:type WHERE id=:id")
     suspend fun updateKost(address: String?, price: String?, type: String?, id:Int)
@@ -34,6 +34,6 @@ interface KostDao {
     @Query("UPDATE profile SET address=:address, number=:number WHERE id=:id")
     suspend fun updateProfile(address: String?, number: String?, id:Int)
 
-//    @Query("SELECT * FROM historysewa")
-//    fun selectAllHistory(): List<HistorySewa>
+    @Query("SELECT * FROM historysewa")
+    fun selectAllHistory(): List<HistorySewa>
 }

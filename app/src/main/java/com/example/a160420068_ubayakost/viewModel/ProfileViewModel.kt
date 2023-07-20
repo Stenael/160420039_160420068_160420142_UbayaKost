@@ -28,10 +28,10 @@ class ProfileViewModel (application: Application):
         }
     }
 
-    fun refresh(id : Int){
+    fun refresh(username: String?){
         launch{
             val db = buildDb(getApplication())
-            profileLD.postValue(db.kostDao().selectProfile(id))
+            profileLD.postValue(db.kostDao().selectProfile(username))
         }
     }
 

@@ -32,7 +32,9 @@ data class Kost(
     @ColumnInfo("fal2")
     var fal2:String?,
     @ColumnInfo("fal3")
-    var fal3:String?
+    var fal3:String?,
+    @ColumnInfo("isBooked")
+    var isBooked:Int?
 ){
     @PrimaryKey(autoGenerate = true)
     var id:Int = 0
@@ -53,13 +55,13 @@ data class Profile(
     var id:Int = 0
 }
 
-//@Entity(tableName = "historysewa")
-//data class HistorySewa(
-//    @ColumnInfo("kostname")
-//    val kostname:String?,
-//    @ColumnInfo("tanggalselesai")
-//    val tanggalselesai:String?
-//){
-//    @PrimaryKey(autoGenerate = true)
-//    var id:Int = 0
-//}
+@Entity(tableName = "historysewa")
+data class HistorySewa(
+    @ColumnInfo("kostname")
+    val kostname:String?,
+    @ColumnInfo("tanggalselesai")
+    val tanggalselesai:String?
+){
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0
+}

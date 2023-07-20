@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.android.volley.RequestQueue
+import com.example.a160420068_ubayakost.model.HistorySewa
 import com.example.a160420068_ubayakost.model.Kost
 import com.example.a160420068_ubayakost.util.buildDb
 import kotlinx.coroutines.CoroutineScope
@@ -35,6 +36,13 @@ class DetailViewModel(application: Application):
         launch {
             val db = buildDb(getApplication())
             db.kostDao().updateKost(address,price,type,id)
+        }
+    }
+
+    fun InsertHistory(list:List<HistorySewa>){
+        launch {
+            val db = buildDb(getApplication())
+            db.kostDao().insertAllHistory(*list.toTypedArray())
         }
     }
 

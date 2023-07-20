@@ -18,7 +18,7 @@ val DB_NAME = "kostdbnew"
 
 fun buildDb(context: Context): KostDatabase {
     val db = Room.databaseBuilder(context, KostDatabase::class.java, DB_NAME)
-        .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
+        .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_7)
         .build()
     return db
 }
@@ -56,6 +56,18 @@ val MIGRATION_4_5 = object : Migration(4, 5) {
                     "'tes','tes','tes','tes','tes')")
     }
 }
+
+val MIGRATION_5_7 = object : Migration(5, 7) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL(
+            "ALTER TABLE kost ADD COLUMN isBooked INTEGER DEFAULT 0")
+        database.execSQL(
+            "CREATE TABLE `profile` (`username` TEXT, `password` TEXT, `address` TEXT, `number` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL);")
+    }
+}
+
+
+
 fun ImageView.loadImage(url: String?, progressBar: ProgressBar) {
     Picasso.get()
         .load(url)

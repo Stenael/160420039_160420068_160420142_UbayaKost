@@ -39,8 +39,7 @@ class ProfileFragment : Fragment(), ButtonEditProfileClickListener{
 
         profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        val profileId = ProfileFragmentArgs.fromBundle(requireArguments()).id
-        profileViewModel.refresh(profileId)
+        profileViewModel.refresh(Global.username)
         profileViewModel.fetch(Global.username,Global.password)
 
         observeViewModel()

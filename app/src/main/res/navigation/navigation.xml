@@ -54,11 +54,7 @@
         android:id="@+id/profileFragment"
         android:name="com.example.a160420068_ubayakost.view.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" >
-        <argument
-            android:name="id"
-            app:argType="integer" />
-    </fragment>
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/kostEditFragment"
         android:name="com.example.a160420068_ubayakost.view.KostEditFragment"
@@ -89,4 +85,9 @@
             android:id="@+id/loginToList"
             app:destination="@id/kostListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.a160420068_ubayakost.view.HistorySewaKost"
+        android:label="History"
+        tools:layout="@layout/fragment_history_sewa_kost" />
 </navigation>
