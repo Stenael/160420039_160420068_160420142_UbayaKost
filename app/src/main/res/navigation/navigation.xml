@@ -40,6 +40,9 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/actionListFragment"
+            app:destination="@id/kostListFragment" />
     </fragment>
     <fragment
         android:id="@+id/kostReviewFragment"

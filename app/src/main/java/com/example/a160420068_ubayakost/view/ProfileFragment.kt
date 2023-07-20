@@ -40,7 +40,8 @@ class ProfileFragment : Fragment(), ButtonEditProfileClickListener{
         profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         profileViewModel.refresh(Global.username)
-        profileViewModel.fetch(Global.username,Global.password)
+        profileViewModel.checkLogin(Global.username,Global.password)
+        dataBinding.editProfile = this
 
         observeViewModel()
 

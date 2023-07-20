@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
             var username = txtUsername?.text.toString()
             var pass = txtPass?.text.toString()
             profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-            profileViewModel.fetch(username,pass)
+            profileViewModel.checkLogin(username,pass)
 
             observeViewModel()
 
@@ -52,12 +52,9 @@ class LoginFragment : Fragment() {
         }
     }
     fun observeViewModel(){
-        var username = ""
-        var pass = ""
-
         profileViewModel.profileLD.observe(viewLifecycleOwner,Observer{
-            username = profileViewModel.profileLD.value?.username.toString()
-            pass = profileViewModel.profileLD.value?.password.toString()
+            profileViewModel.profileLD.value?.username.toString()
+            profileViewModel.profileLD.value?.password.toString()
         })
     }
 }

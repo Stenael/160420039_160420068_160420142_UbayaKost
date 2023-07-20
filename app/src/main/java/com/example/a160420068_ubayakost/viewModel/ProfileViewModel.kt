@@ -18,13 +18,20 @@ class ProfileViewModel (application: Application):
 
     fun fetch(username:String?, password:String?){
         val prof1 = Profile("Steven","123","Surabaya","0812345678")
-        val prof2 = Profile("Spn","345","Sidoarjo","099999999")
+        val prof2 = Profile("Ardi","123","Sidoarjo","099999999")
 
         if(username == "Steven" && password == "123"){
             profileLD.value = prof1
         }
-        else if (username == "Spn" && password == "345"){
+        else if (username == "Ardi" && password == "123"){
             profileLD.value = prof2
+        }
+    }
+
+    fun checkLogin(username: String?, password: String?){
+        launch {
+            val db = buildDb(getApplication())
+            profileLD.postValue(db.kostDao().checkProfile(username, password))
         }
     }
 

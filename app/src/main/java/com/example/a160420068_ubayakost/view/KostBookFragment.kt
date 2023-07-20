@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.databinding.FragmentKostBookBinding
 import com.example.a160420068_ubayakost.databinding.FragmentKostDetailBinding
@@ -55,8 +56,10 @@ class KostBookFragment : Fragment() {
             txtViewDays?.text = current.toString()
             var history = HistorySewa(txtNameKost.text.toString(), txtViewDays.text.toString())
             val list = listOf(history)
-            detailViewModel.InsertHistory(list)
+            detailViewModel.InsertHistory(list, kostId)
             Toast.makeText(view.context, "Data added", Toast.LENGTH_LONG).show()
+            val action = KostBookFragmentDirections.actionListFragment()
+            Navigation.findNavController(it).navigate(action)
         }
 
         observeViewModel()

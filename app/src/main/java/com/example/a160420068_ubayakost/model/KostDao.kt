@@ -16,7 +16,7 @@ interface KostDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllProfile(vararg  profile: Profile)
 
-    @Query("SELECT * FROM kost")
+    @Query("SELECT * FROM kost WHERE isBooked LIKE 0")
     fun selectAllKost() :List<Kost>
 
     @Query("SELECT * FROM kost WHERE id= :id")
@@ -28,6 +28,9 @@ interface KostDao {
     @Query("SELECT * FROM profile WHERE username= :username")
     fun selectProfile(username:String?): Profile
 
+    @Query("SELECT * FROM profile WHERE username=:username AND password=:password")
+    fun checkProfile(username:String?, password:String?): Profile
+
     @Query("UPDATE kost SET address=:address, price=:price, type=:type WHERE id=:id")
     suspend fun updateKost(address: String?, price: String?, type: String?, id:Int)
 
@@ -36,4 +39,7 @@ interface KostDao {
 
     @Query("SELECT * FROM historysewa")
     fun selectAllHistory(): List<HistorySewa>
+
+    @Query("UPDATE kost SET isBooked=1 WHERE id=:id")
+    fun isBooked(id:Int?)
 }

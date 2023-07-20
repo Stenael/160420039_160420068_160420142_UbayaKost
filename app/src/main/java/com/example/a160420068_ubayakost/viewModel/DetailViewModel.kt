@@ -39,10 +39,11 @@ class DetailViewModel(application: Application):
         }
     }
 
-    fun InsertHistory(list:List<HistorySewa>){
+    fun InsertHistory(list:List<HistorySewa>, id: Int){
         launch {
             val db = buildDb(getApplication())
             db.kostDao().insertAllHistory(*list.toTypedArray())
+            db.kostDao().isBooked(id)
         }
     }
 
