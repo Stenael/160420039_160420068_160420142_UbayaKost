@@ -46,5 +46,13 @@ class KostEditFragment : Fragment() {
             dataBinding.kost = it
         })
     }
+    fun ImageView.loadImage(url:String?){
+        Picasso.get()
+            .load(url)
+            .resize(400, 400)
+            .centerCrop()
+            .error(R.drawable.baseline_error_24)
+            .into(this)
+    }
 
 }
