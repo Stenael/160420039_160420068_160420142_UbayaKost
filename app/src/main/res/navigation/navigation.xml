@@ -30,7 +30,7 @@
             app:destination="@id/kostReviewFragment" />
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/kostBookFragment"
@@ -39,7 +39,7 @@
         tools:layout="@layout/fragment_kost_book" >
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/kostReviewFragment"
@@ -48,7 +48,7 @@
         tools:layout="@layout/fragment_kost_review">
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -62,7 +62,7 @@
         tools:layout="@layout/fragment_kost_edit">
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
         <action
             android:id="@+id/editToList"
             app:destination="@id/kostListFragment" />

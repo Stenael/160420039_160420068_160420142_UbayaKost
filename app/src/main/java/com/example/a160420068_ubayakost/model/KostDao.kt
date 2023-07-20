@@ -15,4 +15,7 @@ interface KostDao {
 
     @Query("SELECT * FROM kost WHERE id= :id")
     fun selectKost(id:Int): Kost
+
+    @Query("SELECT * FROM kost WHERE rating like '4%'")
+    fun selectRatingKost(): List<Kost>
 }

@@ -25,11 +25,6 @@ class KostReviewFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var id =""
-        arguments.let{
-            val kostID = KostDetailFragmentArgs.fromBundle((requireArguments())).id
-            id = "$kostID"
-        }
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         detailViewModel.refresh(id)
 

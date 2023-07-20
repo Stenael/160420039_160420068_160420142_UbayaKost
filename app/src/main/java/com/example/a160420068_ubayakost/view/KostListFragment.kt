@@ -9,13 +9,10 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.viewModel.ListViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class KostListFragment : Fragment() {
    private lateinit var viewModel: ListViewModel

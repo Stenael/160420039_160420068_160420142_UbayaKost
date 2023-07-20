@@ -29,18 +29,14 @@ class KostDetailFragment : Fragment(),ButtonEditClickListener,ButtonBookingClick
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = DataBindingUtil.inflate<FragmentKostDetailBinding>(inflater,R.layout.fragment_kost_detail,container,false)
+        dataBinding = FragmentKostDetailBinding.inflate(inflater,container,false)
         return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var id =""
-        arguments.let{
-            val kostID = KostDetailFragmentArgs.fromBundle((requireArguments())).id
-            id = "$kostID"
-        }
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        val id = KostDetailFragmentArgs.fromBundle(requireArguments()).id
         detailViewModel.refresh(id)
         dataBinding.review = this
         dataBinding.edit = this
@@ -63,17 +59,17 @@ class KostDetailFragment : Fragment(),ButtonEditClickListener,ButtonBookingClick
     }
 
     override fun onButtonEditClick(v: View) {
-        val action = KostDetailFragmentDirections.actionToEdit(v.tag.toString())
+        val action = KostDetailFragmentDirections.actionToEdit(v.tag.toString().toInt())
         Navigation.findNavController(v).navigate(action)
     }
 
     override fun onButtonReviewClick(v: View) {
-        val action = KostDetailFragmentDirections.actionToReview(v.tag.toString())
+        val action = KostDetailFragmentDirections.actionToReview(v.tag.toString().toInt())
         Navigation.findNavController(v).navigate(action)
     }
 
     override fun onButtonBookingClick(v: View) {
-        val action = KostDetailFragmentDirections.actionToBook(v.tag.toString())
+        val action = KostDetailFragmentDirections.actionToBook(v.tag.toString().toInt())
         Navigation.findNavController(v).navigate(action)
     }
 }

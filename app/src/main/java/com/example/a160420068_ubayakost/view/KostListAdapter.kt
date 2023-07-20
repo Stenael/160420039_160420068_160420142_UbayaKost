@@ -38,7 +38,7 @@ class KostListAdapter(
     }
 
     override fun onButtonDetailClick(v: View) {
-        val action = KostListFragmentDirections.actionToDetail(v.tag.toString())
+        val action = KostListFragmentDirections.actionToDetail(v.tag.toString().toInt())
         Navigation.findNavController(v).navigate(action)
     }
 }
