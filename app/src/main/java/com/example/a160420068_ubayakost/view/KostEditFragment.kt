@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.R
+import com.example.a160420068_ubayakost.databinding.FragmentKostBookBinding
 import com.example.a160420068_ubayakost.databinding.FragmentKostDetailBinding
 import com.example.a160420068_ubayakost.databinding.FragmentKostEditBinding
 import com.example.a160420068_ubayakost.databinding.FragmentKostEditBindingImpl
@@ -28,13 +29,15 @@ class KostEditFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = DataBindingUtil.inflate<FragmentKostEditBinding>(inflater,R.layout.fragment_kost_edit,container,false)
+        dataBinding = FragmentKostEditBinding.inflate(inflater,container,false)
         return dataBinding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        detailViewModel.refresh(id)
+
+        val kostId = KostDetailFragmentArgs.fromBundle(requireArguments()).id
+        detailViewModel.refresh(kostId)
 
         observeViewModel()
     }
