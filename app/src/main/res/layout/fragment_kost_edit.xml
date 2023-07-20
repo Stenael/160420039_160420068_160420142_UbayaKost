@@ -7,6 +7,9 @@
         <variable
             name="kost"
             type="com.example.a160420068_ubayakost.model.Kost" />
+        <variable
+            name="edit"
+            type="com.example.a160420068_ubayakost.view.ButtonEditKostClickListener" />
     </data>
 
     <FrameLayout
@@ -68,6 +71,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
                     android:text="Finish"
+                    android:tag="@{kost.id}"
+                    android:onClick="@{edit::onButtonEditKostClick}"
                     android:textSize="14sp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
