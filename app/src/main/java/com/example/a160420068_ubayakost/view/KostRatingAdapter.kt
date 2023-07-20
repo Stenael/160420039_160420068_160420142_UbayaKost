@@ -41,7 +41,7 @@ class KostRatingAdapter(val kostList:ArrayList<Kost>)
     }
 
     override fun onButtonDetailClick(v: View) {
-        val action = KostListFragmentDirections.actionToDetail(v.id)
+        val action = KostRatingFragmentDirections.ratingToDetail(v.tag.toString().toInt())
         Navigation.findNavController(v).navigate(action)
     }
 }

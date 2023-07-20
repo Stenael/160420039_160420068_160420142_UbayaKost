@@ -22,7 +22,7 @@ class DetailViewModel(application: Application):
     fun refresh(id : Int){
         launch{
             val db = buildDb(getApplication())
-            kostLD.value = db.kostDao().selectKost(id)
+            kostLD.postValue(db.kostDao().selectKost(id))
         }
     }
 
