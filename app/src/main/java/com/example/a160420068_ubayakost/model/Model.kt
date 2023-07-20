@@ -3,6 +3,7 @@ package com.example.a160420068_ubayakost.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Date
 
 @Entity(tableName = "kost")
 data class Kost(
@@ -46,4 +47,12 @@ data class Profile(
     val address:String?,
     @ColumnInfo("number")
     val number:String?
+)
+
+@Entity(tableName = "historysewa")
+data class HistorySewa(
+    @ColumnInfo("kostname")
+    val kostname:String?,
+    @ColumnInfo("tanggalselesai")
+    val tanggalselesai:Date?
 )

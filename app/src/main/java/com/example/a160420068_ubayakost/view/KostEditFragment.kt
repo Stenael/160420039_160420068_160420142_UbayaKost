@@ -5,21 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.R
-import com.example.a160420068_ubayakost.databinding.FragmentKostBookBinding
-import com.example.a160420068_ubayakost.databinding.FragmentKostDetailBinding
 import com.example.a160420068_ubayakost.databinding.FragmentKostEditBinding
-import com.example.a160420068_ubayakost.databinding.FragmentKostEditBindingImpl
 import com.example.a160420068_ubayakost.viewModel.DetailViewModel
-import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 
 class KostEditFragment : Fragment(),ButtonEditKostClickListener {
@@ -39,6 +33,7 @@ class KostEditFragment : Fragment(),ButtonEditKostClickListener {
 
         val kostId = KostDetailFragmentArgs.fromBundle(requireArguments()).id
         detailViewModel.refresh(kostId)
+        dataBinding.edit = this
 
         observeViewModel()
     }
@@ -56,7 +51,7 @@ class KostEditFragment : Fragment(),ButtonEditKostClickListener {
             .into(this)
     }
     override fun onButtonEditKostClick(v: View) {
-        detailViewModel.updateKost(dataBinding.txtAddress.toString(),dataBinding.txtPrice.toString(),dataBinding.txtType.toString(),id)
+        detailViewModel.updateKost(dataBinding.txtAddress.text.toString(),dataBinding.txtPrice.text.toString(),dataBinding.txtType.toString(),id)
         Toast.makeText(view?.context,"Kost Updated",Toast.LENGTH_SHORT).show()
         Navigation.findNavController(v).popBackStack()
     }
