@@ -5,12 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.a160420068_ubayakost.R
+import com.example.a160420068_ubayakost.databinding.FragmentKostBookBinding
 import com.example.a160420068_ubayakost.databinding.FragmentKostReviewBinding
 import com.example.a160420068_ubayakost.viewModel.DetailViewModel
+import com.squareup.picasso.Picasso
 
 class KostReviewFragment : Fragment() {
 
@@ -20,13 +23,15 @@ class KostReviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = DataBindingUtil.inflate<FragmentKostReviewBinding>(inflater,R.layout.fragment_kost_review,container,false)
+        dataBinding = FragmentKostReviewBinding.inflate(inflater,container,false)
         return dataBinding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        detailViewModel.refresh(id)
+
+        val kostId = KostReviewFragmentArgs.fromBundle(requireArguments()).id
+        detailViewModel.refresh(kostId)
 
         observeViewModel()
     }
@@ -34,5 +39,14 @@ class KostReviewFragment : Fragment() {
         detailViewModel.kostLD.observe(viewLifecycleOwner, Observer {
             dataBinding.review = it
         })
+    }
+
+    fun ImageView.loadImage(url:String?){
+        Picasso.get()
+            .load(url)
+            .resize(400, 400)
+            .centerCrop()
+            .error(R.drawable.baseline_error_24)
+            .into(this)
     }
 }
