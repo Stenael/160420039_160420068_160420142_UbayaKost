@@ -49,6 +49,13 @@ class ProfileViewModel (application: Application):
         }
     }
 
+    fun register(list:List<Profile>){
+        launch {
+            val db = buildDb(getApplication())
+            db.kostDao().insertAllProfile(*list.toTypedArray())
+        }
+    }
+
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.IO
 

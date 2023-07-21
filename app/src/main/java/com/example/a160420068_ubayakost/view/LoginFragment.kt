@@ -50,6 +50,12 @@ class LoginFragment : Fragment() {
                 Toast.makeText(activity,"Username or Password wrong",Toast.LENGTH_SHORT).show()
             }
         }
+        val btnSignUp = view.findViewById<Button>(R.id.btnSignUp)
+        btnSignUp.setOnClickListener {
+            val action = LoginFragmentDirections.actionToRegister()
+            Navigation.findNavController(it).navigate(action)
+        }
+
     }
     fun observeViewModel(){
         profileViewModel.profileLD.observe(viewLifecycleOwner,Observer{
