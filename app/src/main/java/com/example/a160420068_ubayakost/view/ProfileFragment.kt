@@ -55,7 +55,6 @@ class ProfileFragment : Fragment(), ButtonEditProfileClickListener, ButtonChange
     override fun onButtonEditProfileClick(v: View, profile: com.example.a160420068_ubayakost.model.Profile){
         profileViewModel.updateProfile(profile.address,profile.number,profile.id)
         Toast.makeText(view?.context,"Profile Updated", Toast.LENGTH_SHORT).show()
-        Navigation.findNavController(v).popBackStack()
     }
 
     override fun onButtonChangePasswordClick(v: View) {

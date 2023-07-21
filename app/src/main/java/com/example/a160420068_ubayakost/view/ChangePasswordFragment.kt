@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.a160420068_ubayakost.R
 import com.example.a160420068_ubayakost.viewModel.ProfileViewModel
 
@@ -37,6 +38,8 @@ class ChangePasswordFragment : Fragment() {
             if(txtNewPass.text.toString() == txtConfirmPass.text.toString()){
                 profileViewModel.changePassword(txtNewPass.text.toString(),id.toInt())
                 Toast.makeText(view.context,"Password Changed", Toast.LENGTH_LONG).show()
+                val action = ChangePasswordFragmentDirections.registerToLogin()
+                Navigation.findNavController(it).navigate(action)
             }else{
                 Toast.makeText(view.context,"Password Change Failed", Toast.LENGTH_LONG).show()
             }

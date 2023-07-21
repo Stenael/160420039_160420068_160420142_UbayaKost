@@ -103,8 +103,8 @@
     <fragment
         android:id="@+id/registerFragment2"
         android:name="com.example.a160420068_ubayakost.view.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/actionRegisterToList"
             app:destination="@id/loginFragment" />
@@ -112,10 +112,13 @@
     <fragment
         android:id="@+id/changePasswordFragment"
         android:name="com.example.a160420068_ubayakost.view.ChangePasswordFragment"
-        android:label="fragment_change_password"
-        tools:layout="@layout/fragment_change_password" >
+        android:label="Change Password"
+        tools:layout="@layout/fragment_change_password">
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/registerToLogin"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

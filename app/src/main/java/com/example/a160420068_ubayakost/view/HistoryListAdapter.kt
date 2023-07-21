@@ -28,11 +28,6 @@ class HistoryListAdapter(val historyList: ArrayList<HistorySewa>) : RecyclerView
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         holder.view.history = historyList[position]
-    //        var txtKostName = holder.view.findViewById<TextView>(R.id.txtKostName)
-//        var txtDate = holder.view.findViewById<TextView>(R.id.txtDate)
-//
-//        txtKostName.text = historyList[position].kostname
-//        txtDate.text = historyList[position].tanggalselesai
     }
 
     fun updateHistoryList(newHistoryList: List<HistorySewa>){
