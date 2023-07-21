@@ -57,7 +57,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.a160420068_ubayakost.view.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/actionToChangePass"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/kostEditFragment"
         android:name="com.example.a160420068_ubayakost.view.KostEditFragment"
@@ -104,5 +108,14 @@
         <action
             android:id="@+id/actionRegisterToList"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.a160420068_ubayakost.view.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

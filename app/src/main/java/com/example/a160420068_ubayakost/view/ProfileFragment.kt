@@ -20,7 +20,7 @@ import com.example.a160420068_ubayakost.model.Kost
 import com.example.a160420068_ubayakost.viewModel.ProfileViewModel
 import com.google.android.material.textfield.TextInputEditText
 
-class ProfileFragment : Fragment(), ButtonEditProfileClickListener{
+class ProfileFragment : Fragment(), ButtonEditProfileClickListener, ButtonChangePasswordListener{
 
 
     private lateinit var profileViewModel: ProfileViewModel
@@ -42,6 +42,7 @@ class ProfileFragment : Fragment(), ButtonEditProfileClickListener{
         profileViewModel.refresh(Global.username)
         profileViewModel.checkLogin(Global.username,Global.password)
         dataBinding.editProfile = this
+        dataBinding.changePass = this
 
         observeViewModel()
 
@@ -56,4 +57,10 @@ class ProfileFragment : Fragment(), ButtonEditProfileClickListener{
         Toast.makeText(view?.context,"Profile Updated", Toast.LENGTH_SHORT).show()
         Navigation.findNavController(v).popBackStack()
     }
+
+    override fun onButtonChangePasswordClick(v: View) {
+        val action = ProfileFragmentDirections.actionToChangePass(v.tag.toString().toInt())
+        Navigation.findNavController(v).navigate(action)
+    }
+
 }

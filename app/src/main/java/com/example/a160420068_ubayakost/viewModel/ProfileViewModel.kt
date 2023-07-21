@@ -34,6 +34,12 @@ class ProfileViewModel (application: Application):
             profileLD.postValue(db.kostDao().checkProfile(username, password))
         }
     }
+    fun changePassword(password: String?, id: Int){
+        launch {
+            val db = buildDb(getApplication())
+            db.kostDao().changePassword(password,id)
+        }
+    }
 
     fun refresh(username: String?){
         launch{

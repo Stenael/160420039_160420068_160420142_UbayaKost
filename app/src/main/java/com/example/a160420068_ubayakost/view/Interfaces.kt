@@ -22,3 +22,6 @@ interface ButtonEditKostClickListener{
 interface ButtonEditProfileClickListener{
     fun onButtonEditProfileClick(v:View, profile: Profile)
 }
+interface ButtonChangePasswordListener{
+    fun onButtonChangePasswordClick(v:View)
+}

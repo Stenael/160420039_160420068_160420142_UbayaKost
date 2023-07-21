@@ -37,6 +37,9 @@ interface KostDao {
     @Query("UPDATE profile SET address=:address, number=:number WHERE id=:id")
     suspend fun updateProfile(address: String?, number: String?, id:Int)
 
+    @Query("UPDATE profile SET password=:password WHERE id=:id")
+    suspend fun changePassword(password: String?, id:Int)
+
     @Query("SELECT * FROM historysewa")
     fun selectAllHistory(): List<HistorySewa>
 
